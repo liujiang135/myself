@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d视频播放</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--<script src="js/heart.js"></script>-->
+    <link rel="stylesheet" href="js/heart.js">
+</head>
+<body>
+<div class="scene">
+    <ul class="box">
+        <li class="top">
+            <div class="center">
+                上
+            </div>
+        </li>
+        <li class="left">
+            <div class="center">
+                个人作品展
+                <ul class="zuopin">
+                    <li class="puke">
+                        <img src="img/music_03.png" alt="">
+                        <a href="#">音乐播放器</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="bot">
+            <div class="center">
+                下
+            </div>
+        </li>
+        <li class="right">
+            <div class="center">
+                右
+            </div>
+        </li>
+        <li class="back">
+            <div class="center">
+                后
+            </div>
+        </li>
+        <li class="front">
+            <div class="center">
+                <div class="describe">
+                    <div class="foot">自我介绍</div>
+                    <div class="main">
+                        <div class="pic">
+                            <img src="img/touxiang.jpg" alt="">
+                        </div>
+                        <div class="jieshao">
+                            <span>姓名：刘将</span>
+                            <span>年龄：25</span>
+                            <span>籍贯：山西</span>
+                            <span>学历：本科</span>
+                            <span>电话：13528801224</span>
+                            <span>邮箱：bisheng139@163.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/hover.js"></script>
+<script>
+    var tops = document.querySelector("li:nth-child(1)");
+    var bottom = document.querySelector("li:nth-child(3)");
+    var front = document.querySelector("li:nth-child(5)");
+    var box = document.querySelector(".box");
+    var clientW = window.innerWidth;
+    var clientH = window.innerHeight;
+    front.style.transform = `translateZ(${clientW}px)`;
+    tops.style.width = tops.style.height = bottom.style.width = bottom.style.height = clientW + "px";
+    bottom.style.top = clientH - clientW + "px";
+    box.style.transform = "translateZ(-500px)";
+    box.style.transformOrigin = "center center 600px";
+    var startangle = 0;
+    var mx = 0;
+    box.onmousedown = function (e) {
+        var sx = e.clientX;
+        box.onmousemove = function (e) {
+            var cx = e.clientX;
+            mx = cx - sx;
+//            console.log(mx)
+            box.style.transform = `translateZ(-500px) rotateY(${mx + startangle}deg)`;
+        }
+        box.onmouseup = function () {
+            startangle += mx;
+            box.onmousemove = null;
+            box.onmouseup = null;
+        }
+    }
+
+</script>
+</html>

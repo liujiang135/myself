@@ -1,0 +1,264 @@
+@charset "UTF-8";
+@keyframes drop {
+  0% {
+    background: red;
+    transform: translate3d(-1000px, 0, 0);
+  }
+  /* 100%{ transform: translate3d(0,0,0); }*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  perspective: 400px;
+  -webkit-perspective: 400px;
+}
+
+.scene > ul {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/*.scene:hover ul{*/
+/*transform: rotate3d(1,1,0,360deg);*/
+/*}*/
+.scene > ul > li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 上 */
+.scene > ul > li:nth-child(1) {
+  transform-origin: top;
+  transform: rotateX(90deg);
+  /*background-image: url(../img/tian5.jpg);*/
+  /*background-size: cover;*/
+}
+
+/* 左 */
+.scene > ul > li:nth-child(2) {
+  background: #EAEAEC;
+  transform-origin: left;
+  transform: rotateY(-90deg);
+  /*background-image: url(../img/bg2.jpg);*/
+  background-size: 100% 100%;
+}
+
+/* 下 */
+.scene > ul > li:nth-child(3) {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+  /*background-image: url(../img/floor.jpg);*/
+  background-size: 100% 100%;
+}
+
+/* 右 */
+.scene > ul > li:nth-child(4) {
+  background: #E9E9E9;
+  transform-origin: right;
+  transform: rotateY(90deg);
+  /*background-image: url(../img/bg3.jpg);*/
+  background-size: 100% 100%;
+}
+
+/* 后 */
+.scene > ul > li:nth-child(5) {
+  background: #E9E9E9;
+  transform: translateZ(100px);
+  /*background-image: url(../img/bg4.jpg);*/
+  background-size: 100% 100%;
+}
+
+/* 前 */
+.scene > ul > li:nth-child(6) {
+  /*background: lightskyblue;*/
+  background: #E2E3E5;
+}
+
+.box > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  position: relative;
+}
+
+.center {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-size: 100% 100%;
+}
+
+.top .center {
+  background-image: url(../img/tian5.jpg);
+  background-size: 270px 270px;
+}
+
+.left .center {
+  transform: rotateY(180deg);
+  background-image: url(../img/zuopin.jpeg);
+  font-size: 40px;
+  text-align: center;
+}
+
+.left .center .zuopin {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.left .center .zuopin li {
+  width: 100px;
+  height: 100px;
+}
+
+.left .center .zuopin li img {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.left .center .zuopin li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.left .center .zuopin li a:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.left .center .zuopin .puke {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.left .center .zuopin li .mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  font-size: 20px;
+  text-align: center;
+  line-height: 150px;
+  color: #fff;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.left .center .zuopin li:hover .mask {
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.bot .center {
+  background-image: url(../img/floor.jpg);
+}
+
+.right .center {
+  background-image: url(../img/bg3.jpg);
+}
+
+.back .center {
+  background-image: url(../img/bg4.jpg);
+}
+
+.front .center {
+  background-image: url(../img/qian2.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front .center .describe {
+  background: #F6F6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 700px;
+  height: 96%;
+  margin-bottom: 18px;
+}
+
+.front .center .describe .foot {
+  font-size: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 16%;
+}
+
+.front .center .describe .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.front .center .describe .main .pic {
+  width: 320px;
+  height: 100%;
+}
+
+.front .center .describe .main .pic img {
+  width: 300px;
+  height: 300px;
+}
+
+.front .center .describe .main .jieshao {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+
+.front .center .describe .main .jieshao span {
+  font-size: 28px;
+}
