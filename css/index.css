@@ -95,7 +95,7 @@ html, body {
 /* 前 */
 .scene > ul > li:nth-child(6) {
   /*background: lightskyblue;*/
-  background: #E2E3E5;
+  background: #ffffff;
 }
 
 .box > li {
@@ -107,8 +107,8 @@ html, body {
 }
 
 .center {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -119,13 +119,13 @@ html, body {
 }
 
 .top .center {
-  background-image: url(../img/tian5.jpg);
-  background-size: 270px 270px;
+  background-image: url(../img/a119.jpg);
+  transform: rotateY(180deg);
 }
 
 .left .center {
+  background-image: url(../img/a31.jpg);
   transform: rotateY(180deg);
-  background-image: url(../img/zuopin.jpeg);
   font-size: 40px;
   text-align: center;
 }
@@ -191,15 +191,19 @@ html, body {
 }
 
 .bot .center {
-  background-image: url(../img/floor.jpg);
+  background-image: url(../img/a117.jpg);
+  opacity: 0.9;
+  transform: rotateY(180deg);
 }
 
 .right .center {
-  background-image: url(../img/bg3.jpg);
+  background-image: url(../img/a29.jpg);
+  transform: rotateY(180deg);
 }
 
 .back .center {
-  background-image: url(../img/bg4.jpg);
+  background-image: url(../img/a9.jpg);
+  transform: rotateY(180deg);
 }
 
 .front .center {
@@ -210,7 +214,6 @@ html, body {
 }
 
 .front .center .describe {
-  background: #F6F6F6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,6 +230,7 @@ html, body {
   align-items: center;
   width: 100%;
   height: 16%;
+  color: #ffffff;
 }
 
 .front .center .describe .main {
@@ -261,4 +265,5 @@ html, body {
 
 .front .center .describe .main .jieshao span {
   font-size: 28px;
+  color: #ffffff;
 }

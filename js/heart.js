@@ -1,4 +1,11 @@
-(function(window,document,undefined){
+
+
+window.onload = function(window,document,undefined){
+//
+// }
+//
+// (function(){
+    console.log(123);
     var hearts = [];
     window.requestAnimationFrame = (function(){
         return window.requestAnimationFrame ||
@@ -63,4 +70,4 @@
     function randomColor(){
         return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
     }
-})(window,document);
+};
