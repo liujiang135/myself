@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
     <!--<script src="js/heart.js"></script>-->
-    <!--<link rel="stylesheet" href="js/heart.js">-->
-    <!--<script type="text/javascript" src="js/ge1doot.js"></script>-->
+    <link rel="stylesheet" href="js/heart.js">
+    <script type="text/javascript" src="js/ge1doot.js"></script>
+    <link rel="stylesheet" href="../../JS/0mywork/liujiang/liujiang.github.io/CSS/liujiang_index.css">
 </head>
 <body>
 <div class="scene">
@@ -20,7 +21,7 @@
         <li class="left">
             <div class="center">
                 个人作品展
-                <ul class="zuopins">
+                <ul class="zuopin">
                     <li class="music">
                         <img src="img/music_03.png" alt="">
                         <a href="#">音乐播放器</a>
@@ -28,6 +29,18 @@
                     <li class="puke">
                         <img src="img/poke_03.png" alt="">
                         <a href="#">纸牌游戏</a>
+                    </li>
+                    <li class="huaban">
+                        <img src="img/huaban_03.png" alt="">
+                        <a href="#">canvas画板</a>
+                    </li>
+                    <li class="dazi">
+                        <img src="img/dazi_02.png" alt="">
+                        <a href="#">打字小游戏</a>
+                    </li>
+                    <li class="wuziqi">
+                        <img src="img/wuziqi.jpg" alt="">
+                        <a href="#">五子棋</a>
                     </li>
                 </ul>
             </div>
@@ -39,12 +52,6 @@
         </li>
         <li class="right">
             <div class="center">
-                <img src="./img/blue.png" alt="">
-                <img src="./img/green.png" alt="">
-                <img src="./img/red.png" alt="">
-                <img src="./img/pursle.png" alt="">
-                <img src="./img/orange.png" alt="">
-                <img src="./img/yellow.png" alt="">
                 右
             </div>
         </li>
@@ -76,7 +83,7 @@
     </ul>
 </div>
 </body>
-<!--<script src="js/hover.js"></script>-->
+<script src="js/hover.js"></script>
 <script>
     var tops = document.querySelector("li:nth-child(1)");
     var bottom = document.querySelector("li:nth-child(3)");
@@ -97,9 +104,7 @@
             var cx = e.clientX;
             mx = cx - sx;
 //            console.log(mx)
-            box.style.transform = `
-            translateZ(-500px)
-            rotateY(${mx + startangle}deg)`;
+            box.style.transform = `translateZ(-500px) rotateY(${mx + startangle}deg)`;
         }
         box.onmouseup = function () {
             startangle += mx;

@@ -39,9 +39,10 @@ html, body {
   transform-style: preserve-3d;
 }
 
-/*.scene:hover ul{*/
-/*transform: rotate3d(1,1,0,360deg);*/
-/*}*/
+.scene:hover ul {
+  transform: rotate3d(1, 1, 0, 360deg);
+}
+
 .scene > ul > li {
   width: 100%;
   height: 100%;
@@ -93,7 +94,7 @@ html, body {
 }
 
 /* 前 */
-.scene > ul > li:nth-child(6) {
+.scenes > ul > li:nth-child(6) {
   /*background: lightskyblue;*/
   background: #ffffff;
 }
@@ -130,61 +131,85 @@ html, body {
   text-align: center;
 }
 
-.left .center .zuopin {
+.left .center .zuopins {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 10;
 }
 
-.left .center .zuopin li {
+.left .center .zuopins li {
+  width: 200px !important;
+  height: 200px !important;
+  top: 0 !important;
+  position: relative;
+  z-index: 11;
   width: 100px;
   height: 100px;
+  transition: all 0.5s ease;
 }
 
-.left .center .zuopin li img {
-  z-index: 10;
+.left .center .zuopins li img {
   width: 100%;
   height: 100%;
+  z-index: 12;
+  transition: all 0.5s ease;
 }
 
-.left .center .zuopin li a {
+.left .center .zuopins li a {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   transition: all 0.5s ease;
   opacity: 0;
 }
 
-.left .center .zuopin li a:hover {
-  background: rgba(0, 0, 0, 0.7);
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.left .center .zuopin .puke {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: red;
-}
-
-.left .center .zuopin li .mask {
+.left .center .zuopins li .mask {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 15;
   font-size: 20px;
-  text-align: center;
-  line-height: 150px;
   color: #fff;
   transition: all 0.5s ease;
   opacity: 0;
 }
 
-.left .center .zuopin li:hover .mask {
+.left > .center > .zuopins > li:hover {
+  width: 110px;
+  height: 110px;
+}
+
+.left > .center > .zuopins > li:hover img {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.left > .center > .zuopins > li:hover a {
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  line-height: 150px;
+  color: #ffffff;
+}
+
+.left > .center > .zuopins > li:hover .mask {
   opacity: 1;
   transform: scale(1.1);
   cursor: pointer;
@@ -199,6 +224,26 @@ html, body {
 .right .center {
   background-image: url(../img/a29.jpg);
   transform: rotateY(180deg);
+}
+
+.right .center img {
+  animation-name: animation1;
+  animation-play-state: running;
+  /* 进去直接播放 */
+  animation-iteration-count: infinite;
+  /* 动画 无限播放次数 */
+  animation-duration: 1.8s;
+  /* 必须 动画时间 */
+  animation-timing-function: linear;
+}
+
+@keyframes animation1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .back .center {
