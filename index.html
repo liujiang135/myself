@@ -5,9 +5,9 @@
     <title>3d视频播放</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
-    <!--<script src="js/heart.js"></script>-->
-    <!--<link rel="stylesheet" href="js/heart.js">-->
-    <!--<script type="text/javascript" src="js/ge1doot.js"></script>-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/heart.js"></script>
+    <script type="text/javascript" src="js/ge1doot.js"></script>
 </head>
 <body>
 <div class="scene">
@@ -29,12 +29,23 @@
                         <img src="img/poke_03.png" alt="">
                         <a href="#">纸牌游戏</a>
                     </li>
+                    <li class="huaban">
+                        <img src="img/huaban_03.png" alt="">
+                        <a href="#">canvas画板</a>
+                    </li>
+                    <li class="dazi">
+                        <img src="img/dazi_02.png" alt="">
+                        <a href="#">打字小游戏</a>
+                    </li>
+                    <li class="wuziqi">
+                        <img src="img/wuziqi.jpg" alt="">
+                        <a href="#">五子棋</a>
+                    </li>
                 </ul>
             </div>
         </li>
         <li class="bot">
             <div class="center">
-                下
             </div>
         </li>
         <li class="right">
@@ -45,7 +56,6 @@
                 <img src="./img/pursle.png" alt="">
                 <img src="./img/orange.png" alt="">
                 <img src="./img/yellow.png" alt="">
-                右
             </div>
         </li>
         <li class="back">
@@ -76,37 +86,40 @@
     </ul>
 </div>
 </body>
-<!--<script src="js/hover.js"></script>-->
+<script src="js/hover.js"></script>
 <script>
-    var tops = document.querySelector("li:nth-child(1)");
-    var bottom = document.querySelector("li:nth-child(3)");
-    var front = document.querySelector("li:nth-child(5)");
-    var box = document.querySelector(".box");
-    var clientW = window.innerWidth;
-    var clientH = window.innerHeight;
-    front.style.transform = `translateZ(${clientW}px)`;
-    tops.style.width = tops.style.height = bottom.style.width = bottom.style.height = clientW + "px";
-    bottom.style.top = clientH - clientW + "px";
-    box.style.transform = "translateZ(-500px)";
-    box.style.transformOrigin = "center center 600px";
-    var startangle = 0;
-    var mx = 0;
-    box.onmousedown = function (e) {
-        var sx = e.clientX;
-        box.onmousemove = function (e) {
-            var cx = e.clientX;
-            mx = cx - sx;
+    window.onload = function () {
+        var tops = document.querySelector(".top");
+        var bottom = document.querySelector(".bot");
+        var front = document.querySelector(".back");
+        var box = document.querySelector(".box");
+        var clientW = window.innerWidth;
+        var clientH = window.innerHeight;
+        front.style.transform = `translateZ(${clientW}px)`;
+        tops.style.width = tops.style.height = bottom.style.width = bottom.style.height = clientW + "px";
+        bottom.style.top = clientH - clientW + "px";
+        box.style.transform = "translateZ(-500px)";
+        box.style.transformOrigin = "center center 600px";
+        var startangle = 0;
+        var mx = 0;
+        box.onmousedown = function (e) {
+            var sx = e.clientX;
+            box.onmousemove = function (e) {
+                var cx = e.clientX;
+                mx = cx - sx;
 //            console.log(mx)
-            box.style.transform = `
+                box.style.transform = `
             translateZ(-500px)
             rotateY(${mx + startangle}deg)`;
-        }
-        box.onmouseup = function () {
-            startangle += mx;
-            box.onmousemove = null;
-            box.onmouseup = null;
+            }
+            box.onmouseup = function () {
+                startangle += mx;
+                box.onmousemove = null;
+                box.onmouseup = null;
+            }
         }
     }
+
 
 </script>
 </html>

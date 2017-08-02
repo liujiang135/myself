@@ -133,9 +133,6 @@ html, body {
     @include flex1;
     z-index: 10;
     li {
-      width: 200px !important;
-      height: 200px !important;
-      top: 0 !important;
       position: relative;
       z-index: 11;
       @include rect(100px, 100px);
