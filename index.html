@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name=“full-screen” content=“yes”>
     <title>3d视频播放</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/heart.js"></script>
-    <script type="text/javascript" src="js/ge1doot.js"></script>
+    <!--<script src="js/heart.js"></script>-->
+    <!--<script type="text/javascript" src="js/ge1doot.js"></script>-->
 </head>
 <body>
 <div class="scene">
@@ -118,8 +119,54 @@
                 box.onmouseup = null;
             }
         }
+
+       //移动端
+        $('.box')[0].addEventListener('touchstart', function (e) {
+//            console.log(this);
+            let sx = e.touches[0].screenX;
+            $('.box')[0].addEventListener('touchmove',function (e) {
+                var cx = e.touches[0].screenX;
+                mx = cx - sx;
+//            console.log(mx)
+                box.style.transform = `
+            translateZ(-500px)
+            rotateY(${mx + startangle}deg)`;
+            })
+            $('.box')[0].addEventListener('touchend',function () {
+                startangle += mx;
+                box.ontouchmove = null;
+                box.ontouchend = null;
+            })
+        })
+    }
+
+</script>
+<script>
+    <!--强制横竖屏-->
+    function orient() {
+        //alert('gete');
+        if (window.orientation == 0 || window.orientation == 180) {
+            $("body").attr("class", "portrait");
+            orientation = 'portrait';
+            return false;
+        }
+        else if (window.orientation == 90 || window.orientation == -90) {
+            $("body").attr("class", "landscape");
+            orientation = 'landscape';
+
+            return false;
+        }
     }
 
 
+    $(function(){
+        orient();
+    });
+
+
+    $(window).bind( 'orientationchange', function(e){
+        orient();
+    });
 </script>
+
 </html>
