@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>棋盘</title>
+</head>
+<style>
+    canvas{
+        width:600px;
+        height:600px;
+        border:2px solid #000;
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        z-index: 10;
+    }
+    .box{
+        width:600px;
+        height:600px;
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        box-shadow:  0 0 0 90px #000;
+        background: #fff;
+        z-index: 13;
+        transform: scale(0,0);
+        transition: all 1s ease;
+    }
+    .box.active{
+        transform: scale(1,1);
+    }
+    a{
+        width:600px;
+        height: 600px;
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        z-index: 120;
+        margin:auto;
+    }
+    button{
+        height:40px;
+    }
+
+</style>
+<body>
+    <!--
+    棋盘
+    棋子
+    输赢
+    -->
+    <button>查看棋谱</button>
+    <br>
+    <canvas width="600" height="600"></canvas>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+let canvas = document.querySelector('canvas');
+let btn = document.querySelector('button');
+let box = document.querySelector('.box');
+let ctx = canvas.getContext('2d');
+let flag = true;
+let flag1 = true;
+let drops={};
+
+    //画线
+    drawLine();
+    btn.onclick=function(){
+        box.classList.toggle('active');
+        if(flag1){
+            btn.innerText = '关闭棋谱';
+            flag1 = !flag1;
+        }else{
+            btn.innerText = '查看棋谱';
+            flag1 = !flag1;
+        }
+        let imgdata = canvas.toDataURL('image/png'); //创建
+        let img = new Image;
+        img.src = imgdata;
+        img.onload=function(){
+//            for(let i=0;i<box.childNodes.length;i++){
+            if(box.childNodes.length ==2 ){
+                box.removeChild(box.firstChild);
+                box.removeChild(box.lastChild);
+            }
+            box.appendChild(img);
+            let a= document.createElement('a');
+            a.href = imgdata;
+            a.download = 'qipan.png';   //下载
+            box.appendChild(a);
+        };
+    };
+
+    canvas.onclick = function(e){
+        let ox = Math.floor(e.offsetX/40);
+        let oy = Math.floor(e.offsetY/40);
+        if(drops[m(ox,oy)]){
+            return;
+        }
+        //棋子  切换颜色
+        if(flag){
+            if(check(ox,oy,'#000') == 5){
+                alert('黑方胜');
+//                drawLine();
+                location.reload();
+            }
+            qizi(ox,oy,'#000');
+        }else{
+//            console.log(check(ox,oy,'red'));  //棋子个数
+            if(check(ox,oy,'red') == 5){
+                alert('红方胜');
+//                drawLine();
+                location.reload();
+            }
+            qizi(ox,oy,'red');
+        }
+    };
+
+    function drawLine(){
+        //清空  保存   画线   恢复
+        ctx.clearRect(0,0,600,600);
+        ctx.beginPath();
+        ctx.save();
+        for(let i=0;i<15;i++){
+            ctx.moveTo(line(0),line(i));
+            ctx.lineTo(line(14),line(i));
+            ctx.moveTo(line(i),line(0));
+            ctx.lineTo(line(i),line(14));
+        }
+        ctx.closePath();
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        circle(line(7),line(7));
+        circle(line(3),line(3));
+        circle(line(11),line(11));
+        circle(line(3),line(11));
+        circle(line(11),line(3));
+    }
+    function line(x){
+        return 20+40*x;
+    }
+    function circle(x,y){
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.arc(0,0,5,0,Math.PI*2);
+        ctx.fill();
+        ctx.closePath();
+        ctx.restore();
+    }
+    function qizi(x,y,color){
+        ctx.save();
+        ctx.translate(line(x),line(y));
+        ctx.beginPath();
+        ctx.arc(0,0,20,0,Math.PI*2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.closePath();
+        ctx.restore();
+        flag = !flag;
+        //存下来
+        drops[m(x,y)] = color;
+    }
+    function m(x,y){
+        return `${x}_${y}`
+    }
+function check(x,y,color){
+    let i=1;
+    let row=1;
+
+    while(drops[m(x+i,y)] == color){  //行
+        row++;
+        i++;
+    }
+    i=1;
+    while(drops[m(x-i,y)] == color){
+        row++;
+        i++;
+    }
+    i=1;
+    let cols=1;
+    while(drops[m(x,y+i)] == color){  //列
+        cols++;
+        i++;
+    }
+    i=1;
+    while(drops[m(x,y-i)] == color){
+        cols++;
+        i++;
+    }
+    i=1;
+    let zx=1;
+    while(drops[m(x+i,y+i)] == color){   //左斜
+        zx++;
+        i++;
+    }
+    i=1;
+    while(drops[m(x-i,y-i)] == color){
+        zx++;
+        i++;
+    }
+    let yx=1;
+    while(drops[m(x+i,y-i)] == color){   //右斜
+        yx++;
+        i++;
+    }
+    i=1;
+    while(drops[m(x-i,y+i)] == color){
+        yx++;
+        i++;
+    }
+    return Math.max(row,cols,zx,yx);
+}
+
+</script>

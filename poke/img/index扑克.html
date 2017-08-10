@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扑克</title>
+    <script src="jquery-3.2.1.js"></script>
+    <!--<script src="myjquery.js"></script>-->
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .box{
+        width:700px;
+        height:600px;
+        background: #F2F2F2;
+        background-image: url("timg.jpg");
+        background-size: 100%;
+        border:1px solid red;
+        padding:8px;
+        margin : 50px;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+    }
+    .pai{
+        width:90px;
+        height:130px;
+        background: #ffffff;
+        background: rgba(225,225,225,0.7);
+        border:1px solid #000000;
+        box-sizing: border-box;
+        position: absolute;
+        top:0px;
+        left:300px;
+        text-align: center;
+        font-weight: bold;
+        /*color:#1304D3;*/
+        color:#000000;
+    }
+
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+$(function(){
+    let box = $('.box');
+    let pai;
+    let index = 0;
+    for(let i=0;i<7;i++){
+        for(let j=0;j<=i;j++){
+            index++;
+            pai= $('<div>').addClass('pai');
+            pai.delay(100*index)
+                .animate({left:(315-50*i)+j*100,top:70*i})
+                .appendTo(box);
+        }
+    }
+    let pai1 = $('.pai');
+
+//    let color =['红桃','方片','黑桃','梅花'];
+//    let color =['hearts','diamonds','spades','clubs'];
+
+//    poke = [{huase:c,shuzi:9},{huase:h,shuzi:5}];
+//    biao = [c_9:true,s_5:true]
+    let poke = [];
+    let biao = {};
+    let color = ['h','c','h','s'];
+    let huase,shuzi;
+    for(let i=0;i<52;i++){
+        huase = color[Math.floor(Math.random()*4)];
+        shuzi = Math.floor(Math.random()*13+1);
+        while(biao[huase+'_'+shuzi]){
+            huase = color[Math.floor(Math.random()*4)];
+            shuzi = Math.floor(Math.random()*13+1);
+        }
+        biao[huase+'_'+shuzi] = true;
+        poke.push({shuzi,huase});
+//        console.log(huase+'_'+shuzi)
+        pai1[i].append(`${huase}-${shuzi}`);
+    }
+    console.dir(poke)
+
+ /*   let index = 0;
+    for(let i=0;i<7;i++){
+        for(let j=1;j<=i;j++){
+            index++;
+            $('<div>').addClass('pai')
+                .delay(100*index)
+                .animate({left:(300-50*i)+j*100,top:70*i})
+                .appendTo(box);
+        }
+    }*/
+
+
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+		*{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        body{
+            /*background-image: url('img/b1.jpg');*/
+            background-image: url('img/zc1.png');
+            background-size:cover;
+            /*background-size:100%;*/
+        }
+        .box{
+            width:180px;
+            position: absolute;
+            top:6px;
+            left:0;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        h1,h2,h3,h4,h5{
+            width:80px;
+            background: #DCE2F3;
+            font-size: 20px;
+            color:#000;
+            margin-right: 30px;
+            margin-bottom:5px;
+            text-align: center;
+            border-radius: 8px;
+            border:2px solid #fff;
+            box-shadow: 0px 1px 3px 3px #ccc inset;
+        }
+        h1 span,h2 span,h3 span,h4 span,h5 span{
+            color: #fff;
+        }
+        .begin{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 200px;
+            margin: auto;
+            z-index: 14;
+            width: 200px;
+            height: 120px;
+            background: #DCE2F3;
+            box-shadow: 0px 1px 3px 3px #ccc inset;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 120px;
+            font-size: 40px;
+            cursor: pointer;
+            border: 3px solid #A6D4E3;
+            box-sizing: border-box;
+            /* background: -webkit-linear-gradient(top,#fff 10%,#F6E5A5 40%,#F6E5A5 60%,#fff 90%); */
+            /*从顶部开始变色*/
+        }
+        .sm{
+            width:180px;
+            font-size: 20px;
+            float:left;
+            /* float:right; */
+            text-align: left;
+            position: relative;
+        }
+        .sm span{
+            position: absolute;
+            top:0px;
+            left:186px;
+        }
+        .sm .sm2{
+            width:85px;
+            height:13px;
+            border:2px solid #fff;
+            position: absolute;
+            margin-top:5px;
+            top:0px;
+            left:47px;
+            border-radius:10px;
+        }
+        .sm3{
+            width:85px;
+            height:13px;
+            background: #B11521;
+            border-radius:10px;
+        }
+        .box1{
+            width: 150px;
+            display: flex;
+        }
+        .box1 .stop, .box1 .continu{
+            width:50px;
+            height:24px;
+            line-height: 24px;
+            margin: 5px;
+            text-align:center;
+            color: #fff;
+            font-weight:bold;
+            cursor: pointer;
+            background:#000;
+        }
+        .continu{
+            background:#000;
+        }
+        .cloud{
+            width:67%;
+            height:100px;
+            background-image:url("img/feiji.png");
+            /*background-size: 100% 100px;*/
+            background-size: contain;
+            position: absolute;
+            z-index: 12;
+            left:16%;
+            top:0px;
+            border-radius:10px;
+            animation:cloud 2s ease-in-out infinite alternate;
+        }
+        @keyframes cloud{
+            from{
+                transform: translateX(-10%);
+            }
+            to{
+                transform: translateX(10%);
+            }
+        }
+        .paotai{
+            width: 240px;
+            height: 180px;
+            position: absolute;
+            left: 0;
+            bottom: 6px;
+        }
+        .pao{
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            left: 233px;
+            top: 444px;
+            z-index: 14;
+            background: #ede624;
+            border-radius: 50%;
+            /* transition: all 0.2s ease; */  
+        }
+        
+    </style>
+    <body>
+    <div class="begin">开始游戏</div>
+   <!--  <div class="next">
+       <div class="next1">下一关</div>
+   </div> -->
+    <div class="box">
+        
+        <h3>关卡:<span>10</span></h3>
+        <!-- <h5>个数:<span>20</span></h5> -->
+        <!-- <h4>总分:<span>20</span></h4> -->
+        <h1>得分:<span>20</span></h1>
+        <h2 class="sm">生命:
+            <!-- <span>20</span> -->
+            <div class="sm2">
+                <div class="sm3"></div>
+            </div>
+        </h2>
+        <div class="box1">
+            <div class="continu">继续</div>
+            <div class="stop">暂停</div>
+        </div>
+
+    </div>
+    <div class="cloud"></div>
+    <div class="paotai">
+        <img src="img/pao.png" alt="" width="100%" height="100%">
+    </div>
+    <div class="pao"><img src="img/pao1.png" alt="" width="100%" height="100%"></div>
+    </body>
+</html>
+<script src="js/game.js"></script>
+<script src="js/function.js"></script>
+<script>
+window.onload=function(){
+    let game1=new Game();
+    game1.start();
+}
+	
+</script>

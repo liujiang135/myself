@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>通关</title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			
+		}
+		.box{
+			width: 200px;
+			height: 50px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border-radius: 5px;
+			text-align: center;
+			padding: 5px 10px;
+			background: #000;
+		}
+		#num{
+			color: red;
+			font-size: 30px;
+		}
+		#backnow{
+			color:blue;
+			font-size: 25px;
+			text-decoration: none;
+		}
+		h3{
+			font-size: 40px;
+			font-weight:bold;
+			color:#fff;
+		}
+	</style>
+	<body>
+		<!--<h1>这是出错页面</h1>-->
+		<div class="box">
+			<h3>恭喜通关</h3>
+			<div class="con">
+				<span id='num'></span>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	window.onload=function(){
+		let span1=document.getElementById('num');
+		let backnow1=document.getElementById('backnow');
+		//获取span1的值  =》    span1.innerText
+		let t=setInterval(fn,500);
+		let i=1;
+		function fn(){
+			span1.innerText = --i;
+			if(i==0){
+				clearInterval(t);
+				close();
+			}
+		}
+		backnow1.onclick = function(){
+			close();
+		}
+	}
+</script>

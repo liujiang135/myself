@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扑克</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <!--<script src="myjquery.js"></script>-->
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    body{
+        width: 100%;
+        height:100%;
+        background-image: url("img/beijin9.jpg");
+        background-size: 100%;
+    }
+    .box{
+        width:700px;
+        height:600px;
+        background-size: 100%;
+        padding:8px;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+    }
+    .pai{
+        width:90px;
+        height:120px;
+        background: #ffffff;
+        background: rgba(225,225,225,0.7);
+        background-size: 90px 120px;
+        border:1px solid #000000;
+        box-sizing: border-box;
+        position: absolute;
+        top:0;
+        left:300px;
+        text-align: center;
+        font-weight: bold;
+        color:#000000;
+    }
+    .active{
+        border:3px solid blue;
+    }
+    .left,.right{
+        width:80px;
+        height:40px;
+        background: cornflowerblue;
+        border-radius:10px;
+        position: absolute;
+        z-index: 80;
+        top:500px;
+        left:300px;
+        text-align: center;
+        line-height: 35px;
+        font-size: 40px;
+        color: #eaeaea;
+        cursor:pointer;
+    }
+    .right{
+        position: absolute;
+        top:550px;
+        left:300px;
+    }
+
+</style>
+<body>
+    <div class="box">
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+    </div>
+</body>
+</html>
+<script>
+$(function(){
+    let box = $('.box');
+    let left = $('.left');
+    let right = $('.right');
+    let pai;
+
+//    let color =['红桃','方片','黑桃','梅花'];
+//    let color =['hearts','diamonds','spades','clubs'];
+
+//    poke = [{huase:c,shuzi:9},{huase:h,shuzi:5}];
+//    biao = [c_9:true,s_5:true]
+
+    let poke = [];
+    let biao = {};
+    let color = ['h','c','d','s'];
+//    let color =['红桃','方片','黑桃','梅花'];
+    //编组-发牌-数字
+    let huase,shuzi;
+    for(let i=0;i<52;i++){
+        huase = color[Math.floor(Math.random()*4)];
+        shuzi = Math.floor(Math.random()*13+1);
+        while(biao[huase+'_'+shuzi]){
+            huase = color[Math.floor(Math.random()*4)];
+            shuzi = Math.floor(Math.random()*13+1);
+        }
+        biao[huase+'_'+shuzi] = true;
+        poke.push({shuzi,huase});
+    }
+//    console.dir(poke);
+    //中间的牌
+    let index = 0;
+    let time=10;
+    for(let i=0;i<7;i++){
+        for(let j=0;j<=i;j++){
+            let item = poke[index];
+            index++;
+            $('<div>').addClass('pai')
+                .data('num',item.shuzi)       // 把数字给了num存起来
+                .prop('id',`${i}_${j}`)
+//                .html(`${item.huase}-${item.shuzi}`)
+                .delay(time*index)
+                .css('backgroundImage',`url(img/${item.huase}${item.shuzi}.png)`)
+                .animate({left:(300-50*i)+j*100,top:60*i})
+                .appendTo(box);
+        }
+    }
+    //下边的排
+    for(;index<poke.length;index++){
+        let item = poke[index];
+        $('<div>').addClass('pai zuo')
+            .data('num',item.shuzi)       // 把数字给了num存起来
+//            .prop('id',`${i}_${j}`)
+            .delay(time*index)
+            .css('backgroundImage',`url(img/${item.huase}${item.shuzi}.png)`)
+            .animate({left:100,top:490})
+            .appendTo(box);
+    }
+    let first = null;
+    let arr = [];
+    $('.pai').click(function(){
+        let ids = $(this).prop('id').split('_');
+        //  x_y
+        //  x y
+        //  x+1  y+1
+        //  #2_2
+        let id1 = `#${parseInt(ids[0])+1}_${ids[1]}`;
+        let id2 = `#${parseInt(ids[0])+1}_${parseInt(ids[1])+1}`;
+        if($(id1).length == 1 || $(id2).length == 1){
+            return;
+        }
+        $(this).toggleClass('active');
+        if($(this).hasClass('active')){
+            $(this).animate({top:'-=20'});
+        }else{
+            $(this).animate({top:'+=20'});
+        }
+        arr.push(parseInt(ids[0]));
+
+        if(!first){
+            first = this;
+            let nm = $(first).data('num');
+            if(nm == 13){
+                $('.active').animate({top:100,left:600}).queue(function(){
+                    $(this).remove();
+                    first =null;
+                })
+            }
+            /*if($(first).data().num == 13){
+                $(first).animate({top:100,left:600},function(){
+                    $(this).removeClass('active').remove();
+                })
+                first =null;
+            }*/
+
+        }else{
+            let sum = $(first).data().num + $(this).data().num;
+            if(sum == 13){
+//                $(first).animate({top:100,left:600}).removeClass('active').remove();
+//                $(this).animate({top:100,left:600}).delay(300).removeClass('active').remove();
+                $('.active').animate({top:100,left:600}).queue(function(){
+                    $(this).remove();
+                    first =null;
+                })
+            }else{
+                $('.active').animate({top:'+=20'}).removeClass('active');
+            }
+            first =null;
+        }
+//        console.log($(this).data().num)
+    })
+
+    let z = 1;
+    right.click(function(){
+        $('.zuo').last()
+            .removeClass('zuo')
+            .addClass('you')
+            .css({zIndex:z++})
+            .animate({left:'+=400px'});
+    });
+    left.click(function(){
+        let you = $('.you');
+        if(you.length == 0){
+            return;
+        }
+        console.log(you.length);
+        for(let i = you.length;i>=0;i--){
+            $(you[i]).delay(300*i)
+                .animate({left:'-=200px',width:'0',top:'400px'},function(){
+                    $(this).css('zIndex',0)
+                })
+                .animate({left:'-=200px',width:'90px',top:'490px'})
+                .removeClass('you')
+                .addClass('zuo');
+//            $(you[i]).rotate({angle:45})
+//            console.log($(you[i]).zIndex)
+        }
+    })
+})
+</script>
+
+
+
+
+
+
+
+
