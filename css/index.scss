@@ -258,8 +258,10 @@ html, body {
 }
 
 .back .center {
-  background-image: url(../img/a9.jpg);
+  //background-image: url(../img/a9.jpg);
+  background-image: url(../img/a13.jpg);
   transform: rotateY(180deg);
+  cursor: pointer;
 }
 
 .front .center {
