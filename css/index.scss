@@ -166,7 +166,6 @@ html, body {
       .rotate{
         @include rect(120%, 120%);
         position: absolute;
-        //transform: scale(1.2,1.2);
         animation-name: animation1;
         animation-play-state: running;
         /* 进去直接播放 */
