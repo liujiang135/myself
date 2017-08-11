@@ -160,19 +160,24 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   transition: all 0.5s ease;
 }
 
 .left .center .zuopins li img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   z-index: 12;
   transition: all 0.5s ease;
 }
 
 .left .center .zuopins li .pic {
+  width: 65%;
+  height: 65%;
+  background: #FFFFFF;
+}
+
+.left .center .zuopins li .yuan {
+  border-radius: 50%;
   width: 95%;
   height: 95%;
 }
@@ -236,32 +241,62 @@ html, body {
 
 .left .center .zuopins .music {
   position: absolute;
-  top: 74%;
-  left: 30%;
+  top: 5%;
+  left: 2%;
 }
 
 .left .center .zuopins .huaban {
   position: absolute;
-  top: 74%;
-  left: 40%;
+  top: 24%;
+  left: 2%;
 }
 
 .left .center .zuopins .dazi {
   position: absolute;
-  top: 74%;
-  left: 51%;
+  top: 43%;
+  left: 2%;
 }
 
 .left .center .zuopins .wuziqi {
   position: absolute;
-  top: 74%;
-  left: 62%;
+  top: 61%;
+  left: 2%;
 }
 
 .left .center .zuopins .puke {
   position: absolute;
-  top: 74%;
-  left: 73%;
+  top: 79%;
+  left: 2%;
+}
+
+.left .center .zuopins .mi {
+  position: absolute;
+  top: 5%;
+  left: 87%;
+}
+
+.left .center .zuopins .uke {
+  position: absolute;
+  top: 24%;
+  left: 87%;
+}
+
+.left .center .zuopins .tmall {
+  position: absolute;
+  top: 43%;
+  left: 87%;
+}
+
+.left .center .zuopins .tmall2 {
+  position: absolute;
+  top: 61%;
+  left: 87%;
+}
+
+.left .center .zuopins .apple {
+  position: absolute;
+  top: 79%;
+  left: 87%;
 }
 
 .left > .center > img {

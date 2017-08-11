@@ -148,15 +148,19 @@ html, body {
       z-index: 11;
       @include rect(150px, 150px);
       @include flex1;
-      border-radius: 50%;
+      //border-radius: 50%;
       transition: all 0.5s ease;
       img {
         @include rect(100%, 100%);
-        border-radius: 50%;
         z-index: 12;
         transition: all 0.5s ease;
       }
       .pic{
+        @include rect(65%, 65%);
+        background: #FFFFFF;
+      }
+      .yuan{
+        border-radius: 50%;
         @include rect(95%, 95%);
       }
       .rotate{
@@ -187,11 +191,16 @@ html, body {
     .book{@include position(25%,45%);}
     .blog{@include position(45%,56%);}
     .news{@include position(25%,67%);}
-    .music{@include position(74%,30%);}
-    .huaban{@include position(74%,40%);}
-    .dazi{@include position(74%,51%);}
-    .wuziqi{@include position(74%,62%);}
-    .puke{@include position(74%,73%);}
+    .music{@include position(5%,2%);}
+    .huaban{@include position(24%,2%);}
+    .dazi{@include position(43%,2%);}
+    .wuziqi{@include position(61%,2%);}
+    .puke{@include position(79%,2%);}
+    .mi{@include position(5%,87%);}
+    .uke{@include position(24%,87%);}
+    .tmall{@include position(43%,87%);}
+    .tmall2{@include position(61%,87%);}
+    .apple{@include position(79%,87%);}
   }
 }
 .left > .center >img{
