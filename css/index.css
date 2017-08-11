@@ -362,6 +362,15 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.right .center span {
+  position: absolute;
+  left: 40%;
+  top: 6%;
+  color: #fff;
+  font-size: 40px;
 }
 
 .right .center #mainMap {
@@ -383,6 +392,83 @@ html, body {
   background-image: url(../img/a13.jpg);
   transform: rotateY(180deg);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.back .center span {
+  position: absolute;
+  left: 45%;
+  top: 6%;
+  color: #fff;
+  font-size: 40px;
+}
+
+.back .center img {
+  width: 100px;
+  height: 100px;
+}
+
+.back .center .h5 {
+  position: absolute;
+  top: 37%;
+  left: 32%;
+}
+
+.back .center .css {
+  position: absolute;
+  top: 53%;
+  left: 23%;
+}
+
+.back .center .js {
+  position: absolute;
+  top: 37%;
+  left: 47%;
+}
+
+.back .center .jquery {
+  position: absolute;
+  top: 53%;
+  left: 55%;
+}
+
+.back .center .ajax {
+  position: absolute;
+  top: 53%;
+  left: 40%;
+}
+
+.back .center .php {
+  position: absolute;
+  top: 20%;
+  left: 39%;
+}
+
+.back .center .react {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+}
+
+.back .center .bootstrap {
+  position: absolute;
+  top: 20%;
+  left: 24%;
+}
+
+.back .center .nodejs {
+  position: absolute;
+  top: 37%;
+  left: 62%;
+}
+
+.back .center .v {
+  position: absolute;
+  top: 53%;
+  left: 70%;
 }
 
 .front .center {
