@@ -4,6 +4,7 @@
     background: red;
     transform: translate3d(-1000px, 0, 0);
   }
+  /* 100%{ transform: translate3d(0,0,0); }*/
 }
 
 * {
@@ -54,8 +55,6 @@ html, body {
 .scene > ul > li:nth-child(1) {
   transform-origin: top;
   transform: rotateX(90deg);
-  /*background-image: url(../img/tian5.jpg);*/
-  /*background-size: cover;*/
 }
 
 /* 左 */

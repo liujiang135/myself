@@ -48,8 +48,6 @@ html, body {
 .scene > ul > li:nth-child(1) {
   transform-origin: top;
   transform: rotateX(90deg);
-  /*background-image: url(../img/tian5.jpg);*/
-  /*background-size: cover;*/
 }
 
 /* 左 */
@@ -259,7 +257,6 @@ html, body {
 
 .right .center {
   background-image: url(../img/a29.jpg);
-  //background-image: url(../img/a17.jpg);
   transform: rotateY(180deg);
   @include flex1;
   position: relative;
