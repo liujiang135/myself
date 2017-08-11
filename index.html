@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
     <!-- 指南针动画 -->
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css"/>
     <script src="js/jquery-3.2.1.js"></script>
     <!--<script type="text/javascript" src="js/ge1doot.js"></script>-->
 </head>
@@ -149,33 +148,6 @@
                         </div>
                     </div>
                     <p>座右铭: 不为失败找借口，只为成功找出路</p>
-                </div>
-            </div>
-            <div class="safari">
-                <div class="compass">
-                    <div class="needle">
-                        <div class="screw"></div>
-                    </div>
-                    <div class="dial">
-                        <div class="clock clock-0-6">
-                            <div class="clock-half"></div>
-                        </div>
-                        <div class="clock clock-1-7">
-                            <div class="clock-half"></div>
-                        </div>
-                        <div class="clock clock-2-8">
-                            <div class="clock-half"></div>
-                        </div>
-                        <div class="clock clock-3-9">
-                            <div class="clock-half"></div>
-                        </div>
-                        <div class="clock clock-4-10">
-                            <div class="clock-half"></div>
-                        </div>
-                        <div class="clock clock-5-11">
-                            <div class="clock-half"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </li>
@@ -493,8 +465,8 @@
         front.style.transform = `translateZ(${clientW}px)`;
         tops.style.width = tops.style.height = bottom.style.width = bottom.style.height = clientW + "px";
         bottom.style.top = clientH - clientW + "px";
-        box.style.transform = "translateZ(-500px)";
-        box.style.transformOrigin = "center center 600px";
+        box.style.transform = "translateZ(-300px)";
+        box.style.transformOrigin = "center center 500px";
         var startangle = 0;
         var mx = 0;
 //        PC端
@@ -504,7 +476,7 @@
                 var cx = e.clientX;
                 mx = cx - sx;
                 box.style.transform = `
-            translateZ(-500px)
+            translateZ(-300px)
             rotateY(${mx + startangle}deg)`;
             }
             box.onmouseup = function () {
@@ -521,7 +493,7 @@
                 var cx = e.touches[0].screenX;
                 mx = cx - sx;
                 box.style.transform = `
-            translateZ(-500px)
+            translateZ(-300px)
             rotateY(${mx + startangle}deg)`;
             })
             $('.box')[0].addEventListener('touchend', function () {
