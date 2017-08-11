@@ -1,0 +1,331 @@
+
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0.4rem;
+	/*font-size: 12px;*/
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-appearance: none;/*安卓不支持*/
+	-webkit-text-size-adjust: 100%;
+	-webkit-user-select: none;	
+	-webkit-overflow-scrolling: touch;
+	<a href="tel:110">请拨打电话110</a>
+	<a href="mailto:qq@.com">请发送邮件qq@.com</a>
+	-webkit-user-select:none;user-select:none;
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-transform: translate(0,0,0);
+	/*transform: translate3d(0, 0, 0);*/
+}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+body {-webkit-overflow-scrolling:touch; overflow-scrolling: touch;}
+p{max-height:9999999px}
+
+
+body{
+	font-family: "苹方","微软雅黑", "Helvetica";
+}
+
+img{
+	display: block;
+}
+
+a{
+	text-decoration: none;
+}
+html{
+	font-size: 100px;
+}
+
+
+/*<!--banner-->*/
+.banner{
+	width: 100%;
+	overflow: hidden;
+	height: 6.04rem;
+	 /*opacity: 0.1;*/
+}
+
+ /* 定义一条动画规则 */
+.banner1{
+	height: 6.105rem;
+	display: flex;
+	animation-name: animation1;
+	animation-play-state: running;
+	/* 进去直接播放 */
+	animation-iteration-count: infinite;
+	/* 动画 无限播放次数 */
+	animation-duration: 14s;
+	/* 必须 动画时间 */
+	animation-delay: 1s;
+	animation-timing-function: linear;
+}
+@keyframes animation1{
+		0%{
+		    transform: translateX(0);
+		}
+		9.2% {
+		    transform: translateX(-100%);
+			}
+		18.2% {
+		    transform: translateX(-100%);
+			}
+		27.3% {
+		    transform: translateX(-200%);
+			}
+		36.4% {
+		    transform: translateX(-200%);
+			}
+		45.5% {
+		    transform: translateX(-300%);
+			}
+		54.6% {
+		    transform: translateX(-300%);
+			}
+		63.7% {
+		    transform: translateX(-400%);
+			}
+		72.8% {
+		    transform: translateX(-400%);
+			}
+		81.9%{
+		    transform: translateX(-500%);
+			}
+		90% {
+		    transform: translateX(-500%);
+			}
+		100%{
+		    transform: translateX(-500%);
+			}
+		}
+/*导航*/
+.head{
+	width: 100%;
+	position: fixed;
+	z-index: 10;
+	background: rgba(0,0,255,0.4);
+	top: 0;
+}
+.head>ul{
+	height: 1.3rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	}
+.head>ul>li{
+	line-height: 1.4rem;
+	color: #fff;
+}
+.head>ul>li>a{
+	font-size: 0.32rem;
+	color: #fff;
+}
+
+
+
+
+.neirong1{
+	width: 100%;
+	background: #F5F6FA;
+	padding-left: 0.35rem;
+	padding-right: 0.35rem;
+	box-sizing: border-box;
+}
+
+.neirong1-1{
+	height: 1.26rem;
+	line-height: 1.26rem;
+}
+.neirong1-2{
+	padding-left: 0.35rem;
+	padding-right: 0.35rem;
+	padding-top: 0.15rem;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+/*链接：http://pan.baidu.com/s/1i5n4oqL 密码：3l7e*/
+
+/*老师图片模块*/
+.neirong1-2-2{
+	width:9.4rem;
+	height: 3.4rem;
+	display: flex;
+	margin: 0 auto;
+	padding:0.3rem;
+	padding-right:0rem;
+	padding-left:0rem;
+	border-bottom: 0.01rem solid #B8B8B8;
+	box-sizing: border-box;
+}
+.neirong1-2-2-1{
+	width:3.3rem;
+	height: 3.3rem;
+}
+.neirong1-2-2-2{
+	margin-left: 0.35rem;
+	width:5.7rem;
+	height: 3.3rem;
+	box-sizing: border-box;
+	/*background: red;*/
+}
+.neirong1-2-2-2>h1{
+	height: 0.9rem;
+	float: left;
+	/*padding-top: 0.2rem;*/
+	line-height: 1rem;
+	border-bottom: 0.01rem dashed #BFBFBF;
+	box-sizing: border-box;
+}
+.neirong1-2-2-2>h2{
+	height: 0.9rem;
+	line-height: 1rem;
+	font-size: 0.2rem;
+	color: #000;
+	margin-left: 1.5rem;
+	/*background: red;*/
+	border-bottom: 0.01rem dashed #BFBFBF;
+}
+.neirong1-2-2-2>p{
+	color:#9ED84E;
+}
+color:#9ED84E;
+span{
+	height: 0.9rem;
+	line-height: 1rem;
+	color: #FF9607;
+}
+
+
+
+.neirong1-2-3{
+	/*width: ;*/
+	height: 0.7rem;
+	display: flex;
+	justify-content: center;
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
+}
+.neirong1-2-3>img{
+		width: 2rem;
+		height: 0.7rem;
+		
+}
+.neirong1-2-3>.next{
+	width: 2rem;
+	height: 0.7rem;
+	border: 0.01rem solid #676767;
+	border-radius: 0.4rem;
+	text-align: center;
+	line-height: 0.8rem;
+	margin: 0 0.2rem;
+}
+
+.neirong17-3{
+	width: 100%;
+	margin: 0rem auto 0;
+	background: #F5F6FA;
+	padding-bottom: 2rem;
+	
+}
+
+.neirong17-3 p{
+	color: #858586;
+	font-size: 0.36rem;
+	text-align: center;
+	line-height: 0.8rem;
+}
+
+
+
+.dibu{
+	width: 100%;
+	display: flex;
+	font-size: 0.4rem;
+	flex-direction: row;
+	justify-content:space-around;
+	position: fixed;
+	bottom: 0;
+}
+
+.dibu a{
+	color: #545454;
+}
+.di1{
+	width: 33%;
+	height: 1.35rem;
+	background: #E7E7E7;
+	color: #545454;
+	position: relative;
+	text-align: center;
+	line-height: 1.35rem;
+}
+.di1 a>i{
+	position: absolute;
+	top: -0.1rem;
+	left: 0.4rem;
+	font-size: 0.5rem;
+	color: #545454;
+}
+
+
+.kong{
+	width: 33%;
+	height: 1.35rem;
+	background: #E7E7E7;
+}
+.goutong{
+	width: 33%;
+	height: 1.35rem;
+	background: #E7E7E7;
+	position: relative;
+	padding-right: 0.20rem;
+	text-align: right;
+	/*float: right;*/
+	line-height: 1.35rem;
+}
+.goutong a>i{
+	position: absolute;
+	top: -0.02rem;
+	left: 1.2rem;
+	font-size: 0.6rem;
+	color: #545454;
+}
+.goutong>.hongdian{
+	width:0.5rem;
+	height: 0.5rem;
+	background: #FF2A0E;
+	border-radius: 50%;
+	position: absolute;
+	top: 0.2rem;
+	left: 0.9rem;
+	color: #545454;
+}
+.dianhua{
+	width: 40%;
+	height: 1.35rem;
+	background: #FF8D12;
+	position: absolute;
+	bottom: 0.1rem;
+	left: 30%;
+	text-align: center;
+	font-size: 0.4rem;
+	line-height: 1.35rem;
+	border-radius: 0.05rem;
+	box-shadow: 0px 0px 0.06rem 0rem #FF8D12;
+}
+.dianhua a>i{
+	position: absolute;
+	top: -0.1rem;
+	left: 0.7rem;
+	color: #fff;
+	font-size: 0.6rem;
+}
+
+.dianhua a{
+	font-size: 0.4rem;
+	color: #fff;
+}

@@ -4,6 +4,7 @@
     background: red;
     transform: translate3d(-1000px, 0, 0);
   }
+  /* 100%{ transform: translate3d(0,0,0); }*/
 }
 
 * {
@@ -135,6 +136,22 @@ html, body {
   position: absolute;
   left: 44%;
   top: 30px;
+  color: #fff;
+  font-size: 40px;
+}
+
+.left .center .mins {
+  position: absolute;
+  left: 15%;
+  top: 9%;
+  color: #fff;
+  font-size: 40px;
+}
+
+.left .center .rights {
+  position: absolute;
+  right: 15%;
+  top: 9%;
   color: #fff;
   font-size: 40px;
 }
